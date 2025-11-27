@@ -1,20 +1,35 @@
 compilador = gcc
-Objetivo = main-PL403.exe
-.PHONY: all clean documentos
+executavel = main-PL403.exe
+objetos = main-PL403.o functions-PL403.o
+saidahtml = html
+.PHONY: all clean documentos executar
 
-all : $(Objetivo)
-$(Objetivo) : functions-PL403.o main-PL403.o
+all: executar documentos
+
+$(executavel) : $(objetos)
 	$(compilador) -o $@ $^ -lm
+
 %.o : %.c
 	$(compilador) -c $<
+
 documentos:
+	@echo "A gerar documentação.."
 	doxygen Doxyfile
 
-clean:
-	rm -f *.o
-	@echo "Programa: removendo todos os ficheiros!"
+executar: $(executavel)
+	@echo "Programa: executando!"
+	./$(executavel)
 
-
+clean: remover_objetos remover_executavel remover_documentos
+remover_objetos:
+	rm -f $(objetos)
+	@echo "Programa: removendo todos os objetos!"
+remover_executavel:
+	rm -f $(executavel)
+	@echo "Programa: removendo executavél!"
+remover_documentos:
+	rm -rf $(saidahtml)
+	@echo "Programa: removendo documentação!"
 
 
 
