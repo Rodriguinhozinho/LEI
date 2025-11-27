@@ -3,7 +3,7 @@
  * @brief Contém as declarações de todas as funções usadas para manipular os vetores e matrizes.
  
  */
-#define TAM 6
+#define TAM 14
 /**
  * @brief Ordena o vetor por ordem crescente.
  * @param vetor[] é o vetor de interos a ser ordenado.

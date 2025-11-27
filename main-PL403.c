@@ -33,7 +33,8 @@ int main(){
                 printf("8 - Mistura de dois vetores\n");
                 printf("9 - Calcula o maximo divisor comum entre dois elementos seguidos do vetor\n");
                 printf("10 - Construção de uma matriz 14x14 composta pelo produto do vetor original com o vetor  original ordenado\n");
-                printf("0 - Finalizar\n");
+                printf("11 - Constroí a matriz transposta da matriz que resulta do produto do vetor original com o vetor original ordenado\n");
+		printf("0 - Finalizar\n");
                 printf("Caso: ");
                 scanf("%d", &menu);
                 switch(menu){ //Switch Case que vai chamar a função correspondente á operação  que foi escolhida no menu
