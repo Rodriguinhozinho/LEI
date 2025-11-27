@@ -7,12 +7,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 #include "functions-PL403.h"
-int main(){
+int main(int argumento, char *flag[]){
         int vetor[TAM], simetrico[TAM];
         int i, j, menu=-53; // A varivél menu é um valor aleatório para garantir que o menu aparece pelo menos uma vez
         srand(time(NULL)); //A semente gerada vai variar conforme o tempo
-        for (i=0 ; i<TAM; i++){
+        if (argumento > 1){
+			if(strcmp(flag[1], "--help") == 0){
+				ajuda();
+				return 0;
+			}
+	}
+	for (i=0 ; i<TAM; i++){
                 printf("Introduza números inteiros entre -3 e 27:\n");
                 scanf("%d" , &vetor[i]);
                 if (vetor[i] < -3 || vetor[i]>27){ //validação de entrada
