@@ -128,6 +128,7 @@ printf("6 - Delvove a posição e o respetivo valor caso seja possivel calcular 
 printf("8 - Leitura de um novo vetor e devolução de um novo vetor que mistura metado primeiro vetor e metade do segundo");
 printf("9 - Calculo e retorno do máximo divisor comum de dois números consecutivos do vetor\n");
 printf("10 - Construção de uma matriz 14x14 que resultará do produto do vetor introduzido pelo utilizador , original, por esse mesmo vetor porém ordenado\n");
+printf("11 - Imprime a matriz transposta da matriz que resulta do produto do vetor original com o vetor original ordenado");
 printf("0 - Encerra o programa\n");
 }
 /**
