@@ -16,4 +16,8 @@ GCC
 
 ## Compilação e Execução
 make - no terminal
-./main.exe - no terminal
+
+## Limpeza 
+
+make limpar - no terminal (remove o executavél .exe e os objetos .o)
+make remover_documentos - no terminal (remove a documentação gerada)
