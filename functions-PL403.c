@@ -20,7 +20,7 @@
 void ordenarvetor(int vetor[]){
 	int i, k, troca;
         for (i=0 ; i<TAM ; i++){
-                for(k=0 ; k< TAM-1 ;k++){ 
+                for(k=0 ; k< TAM-1 ;k++){
                          if (vetor[k]> vetor[k+1]){
                                  troca = vetor[k];
                                  vetor[k] = vetor[k+1];
@@ -33,12 +33,12 @@ void ordenarvetor(int vetor[]){
  * @brief Gera o vetor simétrico e ordena-o.
  * @param simetrico[] é o vetor simétrico a ser calculado a partir do vetor original.
  */
-void simetricovetor(int vetor[]){ 
+void simetricovetor(int vetor[]){
         int i, simetrico[TAM];
-	for(i=0; i<TAM; i++){   //para todos os valores do vetor vai trocca-los para o simétrico e introduzir os valor num vetor chamado simétrico
+	for(i=0; i<TAM; i++){
 		simetrico[i]=-vetor[i];
 	}
-	ordenarvetor(simetrico); // invoca a funcao anterior que vai ordenar no vetor simetrico
+	ordenarvetor(simetrico);
 	printf("Vetor simétrico ordenado:\n");
 	for (i=0 ; i<TAM; i++){
 		printf("%d ", simetrico[i]);
@@ -50,8 +50,8 @@ void simetricovetor(int vetor[]){
  */
 void somavetor(int vetor[]){
         int i, soma;
-        for (i=0; i < TAM/2 ; i++){ //vai percorrer os valores do vetor até á metade
-                soma = vetor[i] + vetor[i+TAM/2]; //soma metade do vetor com a outra metade
+        for (i=0; i < TAM/2 ; i++){
+                soma = vetor[i] + vetor[i+TAM/2];
                 printf("%d ", soma);
         }
 }
@@ -61,8 +61,8 @@ void somavetor(int vetor[]){
 void multiplovetor(int vetor[]){
         int i;
         printf("Valores nas posições multiplas de 3:\n");
-        for (i=0; i<TAM ; i++){    
-                if (i%3==0){  //percorre a posicao dos vetor e vai verificar  se a posiçao é mutlipla de 3 e vai mostrar qual é a posição
+        for (i=0; i<TAM ; i++){
+                if (i%3==0){
                         printf(" Posição-%d: %d ", i, vetor[i]);
                 }
         }
@@ -83,15 +83,15 @@ void aleatoriovetor(int vetor[]){
  */
 void matrizvetor(int vetor[]){
         int x, y, matriz[TAM][TAM]; 
-        for (x=0; x<TAM ; x++){ // percorre os valores da linha da matriz(x)
-                for (y= 0; y<TAM; y++){ //percorre os valores da coluna da matriz (y)
-                        matriz[x][y] = vetor[(y + x)%TAM]; //utilizando o vetor vai criar uma matriz de forma cicla para que esta seja permutada(%tam)
+        for (x=0; x<TAM ; x++){ 
+                for (y= 0; y<TAM; y++){
+                        matriz[x][y] = vetor[(y + x)%TAM];
                 }
         }
         printf("Matriz:\n");
         for (x=0;x<TAM; x++){
                 for(int y=0; y<TAM; y++){
-                        printf("%3d " , matriz[x][y]); //mostra a matriz
+                        printf("%3d " , matriz[x][y]);
                 }
         printf("\n");
         }
@@ -106,12 +106,12 @@ void raizvetor(int vetor[]){
         float x;
         printf("Raiz Quadrada =\n");
         for(i=0; i<TAM; i++){
-                if(vetor[i]<0){  //vai mostrar quais valores sao impossiveis de calcular a raiz , ou seja , os negativos
+                if(vetor[i]<0){
                         printf("Valor %d Inválido (negativo)\n", vetor[i]);
-                        continue; // faz com que o programa não encerre com os numeros negativos
+                        continue;
                 }
-                x = sqrt(vetor[i]);  //calcula a raiz usando uma funcao da biblioteca math.h
-                printf("Valor = %d - Raiz = %.2f\n", vetor[i], x); // mostra qual a posição e  o valor da raiz dessa posição
+                x = sqrt(vetor[i]);
+                printf("Valor = %d - Raiz = %.2f\n", vetor[i], x);
         }
 }
 /**
@@ -135,19 +135,19 @@ printf("0 - Encerra o programa\n");
  * @param vetor[] é o vetor original com tamanho TAM, vetor2[] é o vetor final (já misturado), vauxiliar[] é um vetor auxiliar.
  */
 void misturavetor(int vetor[]){
-        int i, vetor2[TAM], vauxiliar[TAM]; // dois vetor novos , o que vai sair no resultado final (vetor2[TAM]) e um vetor que serve para auxiliar
-        for (i=0; i<TAM; i++){ 
+        int i, vetor2[TAM], vauxiliar[TAM];
+        for (i=0; i<TAM; i++){
                 printf("Intruza números inteiros entre -3 e 27 para o novo vetor:\n");
                 scanf("%d" ,&vauxiliar[i]);
-                if (vauxiliar[i]< -3 || vauxiliar[i]>27){ // valida a entrada do novo vetor
+                if (vauxiliar[i]< -3 || vauxiliar[i]>27){
                         printf("Valor Inválido!");
-                        i--; // caso o valor introduzido seja inválido não vai contar a vez para o ciclo for
+                        i--;
                 }
         }
         for (i=0; i<TAM/2; i++){
-                vetor2[i]= vetor[i]; // coloca a primeira metade do vetor original no vetor que vai resultar no final
+                vetor2[i]= vetor[i];
         }
-        for(i= TAM/2; i<TAM; i++){ // coloca a segunda metade do vetor novo no vetor que vai resultar no final
+        for(i= TAM/2; i<TAM; i++){
                 vetor2[i] =vauxiliar[i];
         }
         printf("Vetor misturado:\n");
@@ -162,15 +162,15 @@ void misturavetor(int vetor[]){
 void mdcvetor(int vetor[]){
         int i, x, y, z, menor, mdc;
         for (i=0; i<TAM -1 ;i++){
-                x = vetor[i]; //coloca cada valor do vetor na variavél x
-                y= vetor[i+1]; //coloca cada valor seguido de x na variavél y
-                if (x<0){ 
-                        x = -x; //caso o valor seja negativo ,transforma o em positivo
+                x = vetor[i];
+                y= vetor[i+1];
+                if (x<0){
+                        x = -x;
                 }
                 if (y<0){
-                        y=-y; //caso o valor seja negativo, transforma-o em positivo
+                        y=-y;
                 }
-                if (x<y){ 
+                if (x<y){
                         menor = x;
                 }
                 if (y<x){
@@ -187,13 +187,13 @@ void mdcvetor(int vetor[]){
 }
 /**
  * @brief Cria uma matriz onde cada elemento resulta do produto entre elementos do vetor original com o vetor ordenado.
- * @details Na matriz resultante, [x][j] é o produto de x do vetor original com j do vetor ordenado. 
- * @param ordenado[TAM] é o vetor original ordenado por ordem crescente, original[TAM] é o vetor original e matriz2[TAM][TAM] vai ser a matriz resultante.
+ * @details Na matriz resultante, [x][j] é o produto de x do vetor original com j do vetor ordenado.
+ * @param ordenado[TAM] é o vetor original ordenado por ordem crescente e matriz2[TAM][TAM] vai ser a matriz resultante.
  */
 void matriz2vetor(int vetor[]){
-        int x, y, ordenado[TAM], original[TAM], matriz2[TAM][TAM];
+        int x, y, ordenado[TAM], matriz2[TAM][TAM];
         for (x=0;x<TAM;x++){
-                ordenado[x]=vetor[x]; 
+                ordenado[x]=vetor[x];
         }
         ordenarvetor(ordenado);
         for (x=0; x<TAM; x++){
@@ -212,11 +212,11 @@ void matriz2vetor(int vetor[]){
 /**
  * @brief Cria a matriz transposta da matriz que resulta do produto entre o vetor original e o vetor ordenado.
  * @details Esta função primeiro cria a matriz que origina do produto e depois imprime a sua transposta.
- * @param ordenado[TAM] é o vetor original ordenado por ordem crescente, original[TAM] é o vetor original e matriz2[TAM][TAM] vai ser a matriz resultante e matriz2[y][x] é a transposta.
+ * @param ordenado[TAM] é o vetor original ordenado por ordem crescente e matriz2[TAM][TAM] vai ser a matriz resultante e matriz2[y][x] é a transposta.
  */
 
 void transpostavetor(int vetor[]){
-        int x, y, ordenado[TAM], original[TAM], matriz2[TAM][TAM];
+        int x, y, ordenado[TAM], matriz2[TAM][TAM];
         for (x=0;x<TAM;x++){
                 ordenado[x]=vetor[x];
         }

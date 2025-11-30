@@ -20,13 +20,12 @@ executar: $(executavel)
 	@echo "Programa: executando!"
 	./$(executavel)
 
-clean: remover_objetos remover_executavel remover_documentos
-remover_objetos:
+clean: limpar remover_documentos
+
+limpar:
 	rm -f $(objetos)
-	@echo "Programa: removendo todos os objetos!"
-remover_executavel:
 	rm -f $(executavel)
-	@echo "Programa: removendo executavél!"
+	@echo "Programa: removendo executavél e objetos!"
 remover_documentos:
 	rm -rf $(saidahtml)
 	@echo "Programa: removendo documentação!"
