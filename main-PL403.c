@@ -1,7 +1,8 @@
 /**
  * @file main-PL403.c
- * @brief Programa principal para a manipulação de vetores.
- * * Este programa permite ao utilizador introduzir um vetor com valores válidos e aceder a um menu interativo para executar diversas operações.
+ * @brief Programa principal e menu interativo para operações de vetor e matriz.
+ * * @details Começo do programa. É responsável pela introdução do vetor, validação da e e pelo menu principal.
+ *
  * @author Rodrigo Marques
  */
 #include <stdio.h>
@@ -9,10 +10,18 @@
 #include <time.h>
 #include <string.h>
 #include "functions-PL403.h"
+
+/**
+ * @brief Ponto de entrada do vetor.
+ *
+ * @param argumento Número de argumentos fornecidos na linha de comandos.
+ * @param flag[] Vetor de strings com os argumentos dados na execução(terminal). Usado para a flag `--help`.
+ * @return Retorna 0 quando encerra o programa (opção 0 do menu).
+ */
 int main(int argumento, char *flag[]){
         int vetor[TAM], simetrico[TAM];
-        int i, j, menu=-53; // A varivél menu é um valor aleatório para garantir que o menu aparece pelo menos uma vez
-        srand(time(NULL)); //A semente gerada vai variar conforme o tempo
+        int i, j, menu=-53;
+        srand(time(NULL));
         if (argumento > 1){
 			if(strcmp(flag[1], "--help") == 0){
 				ajuda();
@@ -22,7 +31,7 @@ int main(int argumento, char *flag[]){
 	for (i=0 ; i<TAM; i++){
                 printf("Introduza números inteiros entre -3 e 27:\n");
                 scanf("%d" , &vetor[i]);
-                if (vetor[i] < -3 || vetor[i]>27){ //validação de entrada
+                if (vetor[i] < -3 || vetor[i]>27){
                         printf("Valor Inválido!");
                         i--;
                 }
