@@ -28,6 +28,41 @@ void ordenarvetor(int vetor[]){
                 }
         }
 }
+
+/**
+ * @brief Imprime uma matriz de tamanho TAM x TAM.
+ * @details Esta função é uma função auxiliar para outras funções do programa.
+ * @param matriz[TAM][TAM] é a matriz que vai ser impressa.
+ */
+void printmatriz(int matriz[TAM][TAM]){
+    int x, y;
+    printf("\nMatriz:\n");
+    for (x=0; x<TAM; x++){
+        for(y=0; y<TAM; y++){
+            printf("%3d ", matriz[x][y]);
+        }
+    printf("\n");
+    }
+}
+/**
+ * @brief Calcula a matriz que resulta do produto do vetor original com o vetor ordenado.
+ * @details Função auxiliar que cria uma matriz com o produto de cada elemento do vetor original por cada elemento do vetor ordenado.
+ * @param vetor[] é o vetor original.
+ * @param matrizresultante[TAM][TAM] é matriz que resulta do produto.
+ */
+void matrizproduto(int vetor[], int matrizresultante[TAM][TAM]){
+        int x, y, ordenado[TAM];
+        for (x=0 ; x <TAM; x++){
+                ordenado[x] = vetor[x];
+        }
+        ordenarvetor(ordenado);
+        for (x=0; x<TAM; x++){
+                for(y=0; y<TAM; y++){
+                        matrizresultante[x][y] = vetor[x] * ordenado[y];
+                }
+        }
+}
+
 /**
  * @brief Cria e ordena o vetor simétrico.
  * @details Calcula o vetor simétrico (sinais opostos ao vetor original) e ordena-o com a função @ref ordenarvetor().
@@ -89,13 +124,7 @@ void matrizvetor(int vetor[]){
                         matriz[x][y] = vetor[(y + x)%TAM];
                 }
         }
-        printf("Matriz:\n");
-        for (x=0;x<TAM; x++){
-                for(int y=0; y<TAM; y++){
-                        printf("%3d " , matriz[x][y]);
-                }
-        printf("\n");
-        }
+        printmatriz(matriz);
 }
 /**
  * @brief Calcula a raiz quadrada de cada elemento do vetor.
@@ -190,52 +219,25 @@ void mdcvetor(int vetor[]){
         }
 }
 /**
- * @brief Cria uma matriz do produto do vetor original pelo vetor ordenado.
- * @details Na matriz resultante, o elemento [x][y] é o produto do elemento x do vetor original com o elemento y do vetor ordenado (@ref ordenarvetor()).
- * @param ordenado[TAM] é o vetor original ordenado por ordem crescente.
- * @param matriz2[TAM][TAM] é a matriz resultante.
+ * @brief Calcula e imprime a matriz resultante do produto do vetor original com o vetor ordenado.
+ * @details Utiliza a função auxiliar @ref calcular_matriz_produto() para criar a matriz e @ref imprimir_matriz() para a exibir.
  */
 void matriz2vetor(int vetor[]){
-        int x, y, ordenado[TAM], matriz2[TAM][TAM];
-        for (x=0;x<TAM;x++){
-                ordenado[x]=vetor[x];
-        }
-        ordenarvetor(ordenado);
-        for (x=0; x<TAM; x++){
-                for(y=0; y<TAM; y++){
-                        matriz2[x][y]= vetor[x] * ordenado[y];
-                }
-        }
-        printf("Matriz:\n");
-        for(x=0;x<TAM;x++){
-                for(y=0;y<TAM ;y++){
-                        printf("%3d ", matriz2[x][y]);
-                }
-        printf("\n");
-        }
+        int matriz2[TAM][TAM];
+	matrizproduto(vetor, matriz2);
+	printmatriz(matriz2);
 }
 /**
- * @brief Cria a matriz transposta da matriz do produto do vetor original pelo vetor ordenado.
- * @details Constrói a matriz resultante do produto do vetor original pelo vetor ordenado (usando a mesma lógica de @ref matriz2vetor()) e imprime a transposta ([x][y] -> [y][x]).
- * @param ordenado[TAM] é o vetor original ordenado.
- * @param matriz2[TAM][TAM] é a matriz que resulta do produto.
+ * @brief Calcula a matriz transposta da matriz do produto e imprime o resultado.
+ * @details Utiliza @ref calcular_matriz_produto() para obter a matriz original, calcula a transposta ([x][y] -> [y][x]) e mostra-a com @ref imprimir_matriz().
  */
 void transpostavetor(int vetor[]){
-        int x, y, ordenado[TAM], matriz2[TAM][TAM];
-        for (x=0;x<TAM;x++){
-                ordenado[x]=vetor[x];
-        }
-        ordenarvetor(ordenado);
-        for (x=0; x<TAM; x++){
-                for(y=0; y<TAM; y++){
-                        matriz2[x][y]= vetor[x] * ordenado[y];
-                }
-        }
-        printf("Matriz:\n");
-        for(x=0;x<TAM;x++){
-                for(y=0;y<TAM ;y++){
-                        printf("%3d ", matriz2[y][x]);
-                }
-        printf("\n");
-        }
+        int x, y, matriz2[TAM][TAM], transposta[TAM][TAM];
+        matrizproduto(vetor, matriz2);
+	for (x = 0; x<TAM; x++){
+		for( y=0; y< TAM;y++){
+			transposta[x][y] = matriz2[y][x];
+		}
+	}
+	printmatriz(transposta);
 }

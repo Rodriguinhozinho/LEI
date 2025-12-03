@@ -5,7 +5,6 @@
 
 Funcionalidades do programa:
 
----
 
 ### Manipulação de Vetores
 
@@ -28,7 +27,6 @@ O programa oferece várias operações com o vetor principal.
 * **Mistura de Vetores:** A função @ref misturavetor() cria um novo vetor, misturando a **primeira metade do vetor original** com a **segunda metade de um novo vetor** introduzido pelo utilizador (com verificação de entrada valor entre -3 e 27).
 * **Máximo Divisor Comum (MDC):** A função @ref mdcvetor() calcula o **MDC entre dois valores consecutivos** do vetor. Valores negativos são trocados para o seu valor absoluto para o fazer o cálculo.
 
----
 
 ### 2.Geração e Transposição de Matrizes
 
@@ -37,14 +35,15 @@ O programa tem funções dedicadas a criar e manipulação de matrizes de tamanh
 #### 2.1. Matrizes
 
 * **Matriz com Permutações:** A função @ref matrizvetor() cria uma matriz com permutações do vetor original.
-* **Matriz de Produto:** A função @ref matriz2vetor() gera uma matriz onde cada elemento $[x][y]$ é o **produto do elemento $x$ do vetor original com o elemento $y$ do vetor ordenado**.
-
+* **Matriz de Produto:** A função @ref matrizproduto() é uma função auxiliar que gera uma matriz onde cada elemento $[x][y]$ é o **produto do elemento $x$ do vetor original com o elemento $y$ do vetor ordenado**.
+* **Impressão da Matriz Produto:** A função @ref matriz2vetor() utiliza a função auxiliar para calcular a matriz e a função @ref printmatriz() para exibir o resultado.
+ 
 #### 2.2. Transposição
+ 
+* **Matriz Transposta:** A função @ref transpostavetor() recorre á @ref matrizproduto() e calcula a **matriz transposta** dessa matriz.
 
-* **Matriz Transposta:** A função @ref transpostavetor() calcula e mostra a **matriz transposta** da matriz resultante do produto entre o vetor original e o vetor ordenado.
-
----
 
 ### 3. Ajuda do Programa
 
 A função @ref ajuda() exibe um **menu de ajuda** com todas as opções e o funcionamento.
+

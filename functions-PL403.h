@@ -1,4 +1,5 @@
-/	** * @file functions-PL403.h
+/** 
+ * @file functions-PL403.h
  * @brief Tem as declarações de todas as funções usadas para manipular os vetores e matrizes.
  * @details Este cabeçalho define a constante TAM (tamanho do vetor/matriz) e declara os protótipos
  * todas as funções de operação usadas no programa.
@@ -9,7 +10,14 @@
  * @brief Ordena o vetor por ordem crescente com método Bubble Sort.
  */
 void ordenarvetor(int vetor[]);
-
+/**
+ * @brief Imprime uma matriz de tamanho TAM x TAM.
+ */
+void printmatriz(int matriz[TAM][TAM]);
+/**
+ * @brief Calcula a matriz de produto do vetor original pelo vetor ordenado.
+ */
+void matrizproduto(int vetor[], int matrizresultante[TAM][TAM]);
 /**
  * @brief Cria e ordena o vetor simétrico dos elementos.
  */
