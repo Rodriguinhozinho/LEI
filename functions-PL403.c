@@ -109,7 +109,6 @@ void multiplovetor(int vetor[]){
  */
 void aleatoriovetor(int vetor[]){
         int i;
-	srand(time(NULL)); // acompanha o tempo da vida real para gerar uma "seed" nova a cada vez que o programa é executado
         i = rand() % TAM; //retorna o número aleatorio do vetor pois está limitado pelo %TAM
         printf ("Valor aletório do vetor: %d", vetor[i]);
 }
@@ -118,10 +117,11 @@ void aleatoriovetor(int vetor[]){
  * @param matriz[TAM][TAM] é a matriz que vai ser impressa a partir de permutações do vetor original.
  */
 void matrizvetor(int vetor[]){
-        int x, y, matriz[TAM][TAM]; 
-        for (x=0; x<TAM ; x++){ 
-                for (y= 0; y<TAM; y++){
-                        matriz[x][y] = vetor[(y + x)%TAM];
+        int x, y, andar, matriz[TAM][TAM];
+	for (x=0; x<TAM ; x++){
+                andar = rand() % TAM;
+		for (y= 0; y<TAM; y++){
+                        matriz[x][y] = vetor[(y + andar)%TAM];
                 }
         }
         printmatriz(matriz);
