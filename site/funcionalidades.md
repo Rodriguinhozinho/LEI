@@ -30,12 +30,12 @@ O programa oferece várias operações com o vetor principal.
 
 ### 2.Geração e Transposição de Matrizes
 
-O programa tem funções dedicadas a criar e manipulação de matrizes de tamanho $TAM \times TAM$.
+O programa tem funções dedicadas a criar e manipulação de matrizes de tamanho 14 x 14.
 
 #### 2.1. Matrizes
 
 * **Matriz com Permutações:** A função @ref matrizvetor() cria uma matriz com permutações do vetor original.
-* **Matriz de Produto:** A função @ref matrizproduto() é uma função auxiliar que gera uma matriz onde cada elemento $[x][y]$ é o **produto do elemento $x$ do vetor original com o elemento $y$ do vetor ordenado**.
+* **Matriz de Produto:** A função @ref matrizproduto() é uma função auxiliar que gera uma matriz onde cada elemento [x][y] é o **produto do elemento x do vetor original com o elemento y do vetor ordenado**.
 * **Impressão da Matriz Produto:** A função @ref matriz2vetor() utiliza a função auxiliar para calcular a matriz e a função @ref printmatriz() para exibir o resultado.
  
 #### 2.2. Transposição

@@ -2,9 +2,10 @@ compilador = gcc
 executavel = main-PL403.exe
 objetos = main-PL403.o functions-PL403.o
 saidahtml = html
+
 .PHONY: all clean documentos executar
 
-all: executar documentos
+all: $(executavel) documentos
 
 $(executavel) : $(objetos)
 	$(compilador) -o $@ $^ -lm
@@ -20,17 +21,13 @@ executar: $(executavel)
 	@echo "Programa: executando!"
 	./$(executavel)
 
-clean: limpar remover_documentos
+clean: limpar limpardocumentos
 
 limpar:
 	rm -f $(objetos)
 	rm -f $(executavel)
-	@echo "Programa: removendo executavél e objetos!"
-remover_documentos:
+	@echo "Programa: removendo executável e objetos!"
+
+limpardocumentos:
 	rm -rf $(saidahtml)
 	@echo "Programa: removendo documentação!"
-
-
-
-
-

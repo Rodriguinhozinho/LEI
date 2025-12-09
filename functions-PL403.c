@@ -187,36 +187,28 @@ void misturavetor(int vetor[]){
                 printf("%d " , vetor2[i]);
         }
 }
+
 /**
  * @brief Calcula o Máximo Divisor Comum (MDC) entre dois valores consecutivos.
- * @details Calcula o MDC para cada par de valores consecutivos no vetor. Valores negativos são transformados em valores absolutos.
- * @param menor é o menor valor, mdc é o máximo divisor comum
+ * @details Utiliza o método de divisões sucessivas. Valores negativos são convertidos em valor absoluto.
+ * @param vetor[] O vetor de inteiros.
  */
 void mdcvetor(int vetor[]){
-        int i, x, y, z, menor, mdc;
-        for (i=0; i<TAM -1 ;i++){
-                x = vetor[i];
-                y= vetor[i+1];
-                if (x<0){
-                        x = -x;
-                }
-                if (y<0){
-                        y=-y;
-                }
-                if (x<y){
-                        menor = x;
-                }
-                if (y<x){
-                        menor =y;
-                }
-                for (z = menor ; z >=1 ;z--){
-                        if (x% z == 0 && y % z == 0){
-                                mdc= z;
-                                break;
-                        }
-                }
-        printf("Maximo divisor comum entre %d e %d = %d\n", vetor[i], vetor[i+1], mdc);
+    int i, a, b, resto;
+    for (i = 0; i < TAM - 1; i++) {
+        a = vetor[i];
+        b = vetor[i+1];
+        if (a < 0)
+		a = -a;
+        if (b < 0)
+		b = -b;
+        while (b != 0) {
+            resto = a % b;
+            a = b;
+            b = resto;
         }
+        printf("Máximo divisor comum entre %d e %d = %d\n", vetor[i], vetor[i+1], a);
+    }
 }
 /**
  * @brief Calcula e imprime a matriz resultante do produto do vetor original com o vetor ordenado.
