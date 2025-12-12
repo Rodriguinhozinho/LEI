@@ -1,7 +1,7 @@
 /** 
  * @file functions-PL403.h
  * @brief Tem as declarações de todas as funções usadas para manipular os vetores e matrizes.
- * @details Este cabeçalho define a constante TAM (tamanho do vetor/matriz) e declara os protótipos
+ * @details Este cabeçalho define a constante TAM (tamanho do vetor/matriz) e declara o cabeçalho de
  * todas as funções de operação usadas no programa.
  */
 #define TAM 14
@@ -50,7 +50,7 @@ void raizvetor(int vetor[]);
 
 /**
  * @brief Mostra o menu de ajuda do programa.
- */ 
+ */
 void ajuda();
 
 /**
@@ -68,7 +68,8 @@ void mdcvetor(int vetor[]);
  */
 void matriz2vetor(int vetor[]);
 
-/** 
+/**
  * @brief Cria a matriz transposta da matriz resultante do produto do vetor original com o vetor ordenado.
  */
 void transpostavetor(int vetor[]);
+

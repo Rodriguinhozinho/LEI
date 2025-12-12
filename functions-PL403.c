@@ -1,9 +1,8 @@
 /**
  * @file functions-PL403.c
  * @brief Implementação de operações com vetores.
- *
  * @details Este ficheiro contém o corpo das funções que realizam as operações.
- * As funções realizam operações como ordenação, simetria, soma por metades, geração aleatória, etc.
+ * As funções realizam operações como ordenação, simetria, soma, geração aleatória, etc.
  */
 
 

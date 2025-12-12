@@ -1,7 +1,7 @@
 /**
  * @file main-PL403.c
  * @brief Programa principal e menu interativo para operações de vetor e matriz.
- * * @details Começo do programa. É responsável pela introdução do vetor, validação da e e pelo menu principal.
+ * @details Começo do programa. É responsável pela introdução do vetor, validação da e e pelo menu principal.
  *
  * @author Rodrigo Marques
  */
@@ -16,7 +16,6 @@
  *
  * @param argumento Número de argumentos fornecidos na linha de comandos.
  * @param flag[] Vetor de strings com os argumentos dados na execução(terminal). Usado para a flag `--help`.
- * @return Retorna 0 quando encerra o programa (opção 0 do menu).
  */
 int main(int argumento, char *flag[]){
         int vetor[TAM], simetrico[TAM];
