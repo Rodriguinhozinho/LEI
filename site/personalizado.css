@@ -1,11 +1,11 @@
 #projectlogo img {
-    height: 35px !important; /* Define uma nova altura para o logo */
+    height: 35px !important;
     width: auto !important;
 }
 
 #projectname {
-    font-size: 1.5em; /* Reduz o tamanho da fonte */
-    line-height: 40px; /* Alinha o texto com o logo reduzido */
+    font-size: 1.5em;
+    line-height: 40px;
 }
 
 #titlearea {
