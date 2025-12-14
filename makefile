@@ -3,9 +3,9 @@ executavel = main-PL403.exe
 objetos = main-PL403.o functions-PL403.o
 saidahtml = html
 
-.PHONY: all clean documentos executar
+.PHONY: all clean documentacao executar
 
-all: $(executavel) documentos
+all: $(executavel) documentacao
 
 $(executavel) : $(objetos)
 	$(compilador) -o $@ $^ -lm
@@ -13,7 +13,7 @@ $(executavel) : $(objetos)
 %.o : %.c
 	$(compilador) -c $<
 
-documentos:
+documentacao:
 	@echo "A gerar documentação.."
 	doxygen Doxyfile
 

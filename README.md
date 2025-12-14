@@ -14,10 +14,15 @@ Make
 Doxygen 
 GCC
 
-## Compilação e Execução
+## Compilação
 make - no terminal
 
-## Limpeza 
+## Execução
+./main-PL403.exe
 
+## Ajuda
+./main-PL403.exe --help
+
+## Limpeza 
 make limpar - no terminal (remove o executavél .exe e os objetos .o)
-make remover_documentos - no terminal (remove a documentação gerada)
+make remover_documentação - no terminal (remove a documentação gerada)
