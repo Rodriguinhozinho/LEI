@@ -28,20 +28,6 @@ var NAVTREE =
     [ "Geral", "index.html#autotoc_md1", null ],
     [ "Utilização", "index.html#autotoc_md2", null ],
     [ "Navegação", "index.html#autotoc_md3", null ],
-    [ "funcionalidades", "funcionalidades.html", [
-      [ "Funcionalidades", "funcionalidades.html#autotoc_md7", [
-        [ "Manipulação de Vetores", "funcionalidades.html#autotoc_md8", [
-          [ "1.1. Ordenação e Simétrico", "funcionalidades.html#autotoc_md9", null ],
-          [ "1.2. Operações de Soma e Múltiplos", "funcionalidades.html#autotoc_md10", null ],
-          [ "1.3. Outras operações", "funcionalidades.html#autotoc_md11", null ]
-        ] ],
-        [ "2.Geração e Transposição de Matrizes", "funcionalidades.html#autotoc_md12", [
-          [ "2.1. Matrizes", "funcionalidades.html#autotoc_md13", null ],
-          [ "2.2. Transposição", "funcionalidades.html#autotoc_md14", null ]
-        ] ],
-        [ "3. Ajuda do Programa", "funcionalidades.html#autotoc_md15", null ]
-      ] ]
-    ] ],
     [ "estrutura_arquivos", "estrutura_arquivos.html", [
       [ "Arquivos do Projeto", "estrutura_arquivos.html#autotoc_md5", null ]
     ] ],

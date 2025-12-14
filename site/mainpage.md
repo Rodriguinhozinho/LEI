@@ -6,8 +6,7 @@
 Esta documentação foi gerada pelo Doxygen para o trabalho "PL4-03 Documentação do programa". 
 O trabalho tem como objetivo operações envolvendo vetores e matrizes.
 
-A documentação sobre as funcionalidades do sistema pode ser encontrada nas subpáginas:
-* @subpage funcionalidades "Funcionalidades Principais"
+A documentação sobre as funcionalidades do sistema pode ser encontrada na subpágina:
 * @subpage estrutura_arquivos "Estrutura do Projeto e Arquivos"
 
 ## Utilização
