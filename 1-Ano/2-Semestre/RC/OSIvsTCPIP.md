@@ -1,9 +1,3 @@
-# 📑 Modelos de Referência: OSI vs. TCP/IP
-
-Este documento detalha o funcionamento teórico (OSI) e prático (TCP/IP) das redes de computadores, explicando a sua estrutura, a lógica de modularidade e como se comparam.
-
----
-
 ## 1. O Modelo OSI (7 Camadas)
 O Modelo OSI (Open Systems Interconnection) é a referência teórica que divide a comunicação em 7 passos independentes.
 
