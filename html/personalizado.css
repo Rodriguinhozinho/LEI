@@ -1,0 +1,13 @@
+#projectlogo img {
+    height: 35px !important;
+    width: auto !important;
+}
+
+#projectname {
+    font-size: 1.5em;
+    line-height: 40px;
+}
+
+#titlearea {
+    padding: 5px 0 5px 0;
+}
