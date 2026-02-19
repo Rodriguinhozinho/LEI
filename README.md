@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # LEI - Licenciatura em Engenharia Informática
 
 | Disciplina |
