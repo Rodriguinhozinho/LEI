@@ -1,9 +1,10 @@
 
+
 /* ------------------------------------------------------- */
 /* ---------------- BIBLIOTECA INTRODUCAO ---------------- */
 /* ------------------------------------------------------- */
 
-
+ 
 /* ------------------------------------------------------- */
 /* ---- protótipos/headers das funções da biblioteca ----- */
 /* ------------------------------------------------------- */
@@ -17,7 +18,6 @@ typedef struct{
 }ALUNO;
 ALUNO *criarArray(int*);
 ALUNO *lerArray (int*);
-
 void mostrarArray (ALUNO*, int);
 
 void atualizarArray (ALUNO*, int);
@@ -59,24 +59,18 @@ ALUNO *criarArray (int *N)
 	int i, num;
 	*N = gerarNumeroInteiro(1,30);
 	A = (ALUNO *) malloc((*N) * sizeof(ALUNO));
-	if(A == NULL){
-		printf("Erro");
-		return NULL;
-	}
-	for (i = 0; i < *N; i++) {
+ 	for (i = 0; i < *N; i++) {
  	       do {
        	 	num = gerarNumeroInteiro(70000, 75000);
         } while (existe(num, A, i));
-        A[i].numAluno = num;
-        A[i].notasMTP[0] = gerarNumeroReal(0.0, 2.0);
-        A[i].notasMTP[1] = gerarNumeroReal(0.0, 2.0);
-        A[i].notasTE[0] = gerarNumeroReal(0.0, 8.0);
-        A[i].notasTE[1] = gerarNumeroReal(0.0, 8.0);
-
-        float soma = A[i].notasMTP[0] + A[i].notasMTP[1] + A[i].notasTE[0] + A[i].notasTE[1];
-        A[i].notaFinal = (int)(soma + 0.5);
-    }
-
+        		A[i].numAluno = num;
+        		A[i].notasMTP[0] = gerarNumeroReal(0.0, 2.0);
+        		A[i].notasMTP[1] = gerarNumeroReal(0.0, 2.0);
+        		A[i].notasTE[0] = gerarNumeroReal(0.0, 8.0);
+        		A[i].notasTE[1] = gerarNumeroReal(0.0, 8.0);
+        		float soma = A[i].notasMTP[0] + A[i].notasMTP[1] + A[i].notasTE[0] + A[i].notasTE[1];
+        		A[i].notaFinal = (int)(soma + 0.5);
+		}
     return A;
 }
 
@@ -119,7 +113,12 @@ void arrayAprovados (ALUNO *A, int N, ALUNO **V, int *NA)
 
 int quantNotasMaiorIgualK (ALUNO *A, int N, int K)
 {
-
+	if(N == 0)
+		return 0;
+	int c=0;
+	if (A[0].notaFinal >= K)
+		c=1;
+		return c + quantNotasMaiorIgualK(A+1, N-1, K);
 }
 
 int arrayNotasFinais (ALUNO *A, int N, int **V)

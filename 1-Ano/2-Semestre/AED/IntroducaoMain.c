@@ -7,12 +7,11 @@
 
 int main()
 {
-	int N;
-	ALUNO *turma;
-	turma = criarArray(&N);
-	if (turma != NULL) {
-        mostrarArray(turma, N);
-        free(turma);
-	}
-    return 0;
+	int N, B, K=10;
+	ALUNO *A;
+	A = criarArray(&N);
+        mostrarArray(A, N);
+        free(A);
+	B=quantNotasMaiorIgualK(A, N, K);
+	printf("Número de notas maiores que %d = %d \n", K, B);
 }
