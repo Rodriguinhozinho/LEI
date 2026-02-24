@@ -103,12 +103,24 @@ int maiorNotaFinal (ALUNO *A, int N)
 
 int maiorNotaFinal_REC (ALUNO *A, int N)
 {
-
+	if(N==1)
+		return A[0].notaFinal;
+	if (A[0].notaFinal > A[1].notaFinal)
+		A[1].notaFinal = A[0].notaFinal;
+		return maiorNotaFinal_REC(A+1 , N-1);
 }
 
 void arrayAprovados (ALUNO *A, int N, ALUNO **V, int *NA)
 {
-
+	*NA = 0;
+	int K, i;
+	*V = (ALUNO*) malloc (*NA * sizeof(ALUNO));
+	for (i = 0; i< N; i++){
+		if(A[i].notaFinal >= 10)
+			(*NA)++;
+			*V = (ALUNO*)  realloc (*V, (*NA) * sizeof(ALUNO));
+			*V[*NA-1]=A[i];
+	}
 }
 
 int quantNotasMaiorIgualK (ALUNO *A, int N, int K)

@@ -7,11 +7,15 @@
 
 int main()
 {
-	int N, B, K=10;
+	int N, B, K=10, TAM;
 	ALUNO *A;
+	ALUNO *V;
 	A = criarArray(&N);
         mostrarArray(A, N);
         free(A);
 	B=quantNotasMaiorIgualK(A, N, K);
 	printf("Número de notas maiores que %d = %d \n", K, B);
+	arrayAprovados(A, TAM, &V, TAM);
+	mostrarArray(V, TAM);
+	
 }
