@@ -85,3 +85,55 @@ void separargenero (PNodoLista L){
     printf("Lista Feminina:\n");
     mostrarListaCabeca(F);
 }
+
+
+
+int MaisVelho(PNodoLista L){
+    PNodoLista L= NULL;
+    DadosLista Velho = L->Elemento;
+    while(L != NULL){
+        if(L->Elemento.dataNasc[2] > Velho.dataNasc[2]){
+            Velho = L->Elemento;
+            else if(L->Elemento.dataNasc[2] == Velho.dataNasc[2]){
+                if(L->Elemento.dataNasc[1] > Velho.dataNasc[1]){
+                    Velho = L->Elemento;
+                }
+                else if(L->Elemento.dataNasc[1] == Velho.dataNasc[1]){
+                    if(L->Elemento.dataNasc[0] > Velho.dataNasc[0]){
+                        Velho = L->Elemento;
+                    }
+                }
+            }
+        }
+        L = L->Prox;
+    }
+    return Velho.numCC;
+}
+
+int mediaAlturaGenero (PNodoLista L, int genero){
+    PNodoLista L = NULL;
+    float soma = 0;
+    int cont = 0;
+    while(L != NULL){
+        if(L->Elemento.genero == genero){
+            soma += L->Elemento.altura;
+            cont++;
+        }
+        L = L->Prox;
+    }
+    return soma/cont;
+}
+
+percentagemGenero (PNodoLista L, int genero){
+    PNodoLista L = NULL;
+    int contGenero = 0;
+    int contTotal = 0;
+    while(L != NULL){
+        if(L->Elemento.genero == genero){
+            contGenero++;
+        }
+        contTotal++;
+        L = L->Prox;
+    }
+    return (float)contGenero/contTotal * 100;
+}
