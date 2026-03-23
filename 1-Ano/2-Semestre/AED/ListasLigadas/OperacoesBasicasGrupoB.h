@@ -137,3 +137,52 @@ percentagemGenero (PNodoLista L, int genero){
     }
     return (float)contGenero/contTotal * 100;
 }
+
+int quantiadeNascidosMes(PNodoLista L, int mes){
+    PNodoLista L = NULL;
+    int cont = 0;
+    while(L != NULL){
+        if(L->Elemento.dataNasc[1] == mes){
+            cont++;
+        }
+        L = L->Prox;
+    }
+    return cont;
+}
+
+int quantidadeNascidosDia (PNodoLista L , int dia){
+	PNodoLista L = NULL;
+	int cont = 0;
+	while(L !=NULL){
+		if(L->Elemento.dataNasc[0] == dia){
+			cont++;
+		}
+		L = L -> Prox;
+	}
+	return cont;
+}
+
+int mediaIdade(PNodoLista L){
+    PNodoLista L = NULL;
+    int soma = 0;
+    int cont = 0;
+    while(L != NULL){
+        int idade = 2026 - L->Elemento.dataNasc[2];
+        soma += idade;
+        cont++;
+        L = L->Prox;
+    }
+    return (float)soma/cont;
+}
+
+
+PNodoLista removerBaixos(PNodoLista L, float alt){
+    PNodoLista nova = NULL;
+    while(L != NULL){
+        if(L->Elemento.altura >= alt){
+            nova = inserirListaInicio(L->Elemento, nova);
+        }
+        L = L->Prox;
+    }
+    return nova;
+}
