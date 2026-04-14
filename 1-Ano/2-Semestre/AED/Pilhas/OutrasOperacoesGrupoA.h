@@ -50,3 +50,44 @@ int mostrarN(PNodoPilha* S, DadosPilha* X, int N)
   }
   return resultado;
 }
+
+int devolverTerceiro(PNodoPilha* S, DadosPilha* X3)
+{
+  DadosPilha X1, X2;
+  X1 = topo(*S);
+  while (!pilhaVazia(*S)){
+    *X3 = X2;
+    X2 = X1;
+    X1 = topo(*S);
+    *S = pop(*S);
+  }
+  if ((*X3).numAluno != -1)
+    return 1;
+  return 0;
+}
+
+PNodoPilha trocarFundoTopo (PNodoPilha S)
+{
+  if (pilhaVazia(S))
+    return S;
+  DadosPilha A, B;
+  PNodoPilha Aux;
+  A = topo(S);
+  s = pop(S);
+  while(!pilhaVazia(S)){
+    Aux = push(topo(S), Aux);
+    S = pop(S);
+  }
+  if (!pilhaVazia(Aux)){
+    S = push(A , S);
+    return S;
+  }
+  B = topo(Aux);
+  Aux = pop(S);
+  S = push (A, S);
+  while (!pilhaVazia(Aux)){
+    S = push(topo(Aux), S);
+    Aux = pop(Aux);
+  }
+  return S;
+}

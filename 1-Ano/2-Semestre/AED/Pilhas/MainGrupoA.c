@@ -32,5 +32,7 @@ int main()
         printf("Pilha:\n");
         mostrarPilha(S);
     }
+    S = trocarFundoTopo(S);
+    mostrarPilha(S);
 }
 
