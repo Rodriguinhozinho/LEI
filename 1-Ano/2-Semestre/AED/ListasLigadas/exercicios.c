@@ -143,3 +143,97 @@ PNodoLista removerPrimeiroNegativo(PNodoLista L)
 	}
 	return L;
 }
+
+
+int produtoEspecial(PNodoLista L){
+	if ( L == NULL) return 1;
+	if (L->Elemento % 5 == 0 && L->Elemento < 100){
+		return L->Elemento + produtoEspecial(L->Prox);}
+	else{
+		return produtoEspecial(L->Prox);
+	}
+}
+
+
+//mover primeiro impar para o fim da lista
+PNodoLista moverPrimeiroImparFim ( PNodoLista L){
+	if (L == NULL || L->Prox == NULL) return L;
+	PNodoLista P = L;
+	PNodoLista Pant, PImpar;
+	while (P != NULL){
+		if (P->Elemento % 2 != 0){
+			PImpar = P;
+		}
+		P = P->Prox;
+	if (PImpar == NULL || PImpar->Prox == NULL) return L;
+	
+//idk
+	// 3. Procurar o ÚLTIMO nó da lista
+    PNodoLista Ult = L;
+    while (Ult->Prox != NULL) {
+        Ult = Ult->Prox;
+    }
+
+    // 4. "DESLIGAR" o nó ímpar da posição atual
+    if (PAntImpar == NULL) { // O ímpar era a cabeça da lista
+        L = PImpar->Prox;
+    } else { // O ímpar estava no meio
+        PAntImpar->Prox = PImpar->Prox;
+    }
+
+    // 5. "LIGAR" o nó ímpar ao fim
+    Ult->Prox = PImpar;   // O antigo último agora aponta para o ímpar
+    PImpar->Prox = NULL;  // O ímpar agora é o novo último
+
+    return L;
+}
+
+//mover o primeiro negativo para o fim
+PNodoLista moverNegativoParaFim(PNodoLista L){
+	// 1. Verificações de Segurança: lista vazia ou só com 1 nó não precisa de mexer
+    if (L == NULL || L->Prox == NULL) {
+        return L;
+    }
+
+    PNodoLista PAnt = NULL;
+    PNodoLista P = L;
+    PNodoLista Ult = NULL;
+
+    // 2. PROCURA: O P avança até achar um negativo, o PAnt vem atrás
+    while (P != NULL && P->Elemento >= 0) {
+        PAnt = P;
+        P = P->Prox;
+    }
+
+    // Se o P é NULL, não havia negativos. 
+    // Se o P->Prox é NULL, o negativo já é o último da lista.
+    if (P == NULL || P->Prox == NULL) {
+        return L;
+    }
+
+    // 3. O CORTE: O nó P (negativo) sai da corrente principal
+    if (PAnt == NULL) {
+        // Se PAnt é NULL, o negativo era o primeiro (Cabeça)
+        L = L->Prox; 
+    } else {
+        // O PAnt salta por cima do P para manter a corrente unida
+        PAnt->Prox = P->Prox;
+    }
+
+    // 
+
+    // 4. A VIAGEM: Agora que o P está "na nossa mão", vamos achar o fim da lista
+    // Começamos a procurar o fim a partir da lista L (que já não tem o P)
+    Ult = L;
+    while (Ult->Prox != NULL) {
+        Ult = Ult->Prox;
+    }
+
+    // 5. A COLAGEM: Colamos o P depois do último e fechamos a lista
+    Ult->Prox = P;     // O antigo último agora aponta para o P
+    P->Prox = NULL;    // O P passa a ser o novo fim (aponta para o vazio)
+
+    // 
+
+    return L;
+}

@@ -227,3 +227,18 @@ float mediaPositivos( PNodoPilha *S){
 	return  soma / contagem;
 }
 
+void destacarMaiorPar(PNodoPilha *S){
+	PNodoPilha AUX;
+	INFOPilha valor;
+	INFOPIlha maiorpar = 0;
+	while(!pilhaVazia(*S)){
+		valor = topo (*S);
+		if (valor % 2 == 0){
+			maiorpar = valor;
+		}
+	}
+	AUX = push(valor,AUX);
+	*S = pop(*S);
+	while(!pilhaVazia(AUX)){
+		valor = topo(AUX);
+		
