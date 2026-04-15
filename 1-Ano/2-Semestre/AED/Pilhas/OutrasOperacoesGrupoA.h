@@ -174,3 +174,35 @@ if (pilhaVazia(S)) {
     return S;
 }
 
+int inverterPilhaRestrição (PNodoPilha *S){
+  if(pilhaVazia(*S)) return *S;
+  PNodoPilha AUX = criarPilha();
+  PNodoPilha INV = criarPilha();
+  int neg = 0;
+  INFOPilha valor;
+  while(!pilhaVazia(*S)){
+    valor = topo(*S);
+    if ( valor < 0) neg = 1;
+    AUX = push (valor , AUX);
+    *S = pop(*S);
+  }
+  if (neg ==1){
+    while(!pilhaVazia(AUX){
+      INV = push((topo(AUX), INV);
+      AUX = pop(AUX);
+   }
+   while(!pilhaVazia(INV)){
+      *S = push(topo(INV), *S);
+      INV = pop(INV);
+   }
+  else{
+    while(!pilhaVazia(AUX)){
+      *S = push((topo(AUX), *S);
+      AUX = pop(AUX);
+    }
+  }
+  return neg;
+}
+
+
+
