@@ -237,3 +237,107 @@ PNodoLista moverNegativoParaFim(PNodoLista L){
 
     return L;
 }
+
+
+//mover maior para o inciio
+PNodoLista moverMaiorParaInicio(PNodoLista L) {
+    if (L == NULL || L->Prox == NULL) return L;
+
+    PNodoLista PAnt = L;      // O que vem atrás
+    PNodoLista P = L->Prox;   // O que vai à frente
+    
+    PNodoLista PMaior = L;    // O maior até agora é o primeiro
+    PNodoLista PAntM = NULL;  // O anterior ao maior
+
+    // 1. PROCURA (Usamos apenas P e PAnt)
+    while (P != NULL) {
+        if (P->Elemento > PMaior->Elemento) {
+            PMaior = P;       // Novo Rei
+            PAntM = PAnt;     // Guardamos o "segurança" do Rei
+        }
+        PAnt = P;
+        P = P->Prox;
+    }
+
+    // 2. CORTE E COLAGEM (Só se o maior não for o primeiro)
+    if (PAntM != NULL) { 
+        // CORTE: O segurança do rei (PAntM) agarra quem estava à frente do rei
+        PAntM->Prox = PMaior->Prox;
+
+        // COLAGEM: O rei (PMaior) agarra a coroa antiga (L)
+        PMaior->Prox = L;
+
+        // NOVA CABEÇA: O rei agora manda na lista
+        L = PMaior;
+    }
+
+    return L;
+}
+
+
+//trocar PAR e Impar que estejam juntos
+PNodoLista trocarVizinhos(PNodoLista L){
+    PNodoLista P = L;
+    PNodoLista PAnt = NULL;
+    PNodoLista PProx = NULL;
+    while (P != NULL && P->Prox != NULL) {
+        // Se encontrarmos Par seguido de Ímpar
+        if (P->Elemento % 2 == 0 && P->Prox->Elemento % 2 != 0) {
+            PProx = P->Prox; // PProx é o Ímpar
+
+            // A TROCA EM 3 PASSOS:
+            // 1. O Par (P) passa a apontar para o que vinha depois do Ímpar
+            P->Prox = PProx->Prox;
+
+            // 2. O Ímpar (PProx) passa a apontar para o Par (P)
+            PProx->Prox = P;
+
+            // 3. O nó de trás (PAnt) tem de apontar para o Ímpar (que agora está à frente)
+            if (PAnt == NULL) {
+                L = PProx; // Se trocámos a cabeça, a nova cabeça é o Ímpar
+            } else {
+                PAnt->Prox = PProx;
+            }
+            return L; // Encontramos o primeiro e trocámos, podemos sair!
+        }
+        // Se não trocou, avança a "sombra" e o "explorador"
+        PAnt = P;
+        P = P->Prox;
+    }
+    return L;
+}
+
+
+
+mediaNotas(PNodoLista L){
+	if (L == NULL) return 0;
+	float soma = 0.0;
+	int contador = 0;
+	while (L!=NULL){
+		soma += L->Elemento.NotaFinal;
+		contador++;
+		L = L->Prox;
+	}
+	return L;
+}
+
+
+PNodoLista removerReprovados(PNodolista L){
+	if ( L == NULL) return L;
+	PNodoLista P = L;
+	PNodoLista AUX = NULL;
+	PNodoLista Pant = NULL;
+	while (P != NULL){
+		if(P->Elemento.notaFinal < 10){
+			if(Pant == NULL){
+				L = P->Prox;
+				AUX = P;
+				P = Pant->Prox;
+			}
+			else{
+				Pant->Prox =  P->Prox;
+				AUX = P;
+				P = Pant->Prox;
+			}
+			libertarnodolista(AUX);
+	
