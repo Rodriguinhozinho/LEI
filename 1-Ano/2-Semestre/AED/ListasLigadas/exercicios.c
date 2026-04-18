@@ -341,3 +341,39 @@ PNodoLista removerReprovados(PNodolista L){
 			}
 			libertarnodolista(AUX);
 	
+//mover o pior para o fim
+PNodoLista moverPiorParaFim(PNodoLista L){
+	if(L==NULL || L->Prox== NULL) return L;
+	PNodoLista P =L;
+	PNodoLista Pant=NULL;
+	PNodoLista ult;
+	PNodoLista AUX = NULL;
+	INFOLista Pior= L->Elemento.notaFinal;
+	while(P!=NULL){
+		if(P->Elemento.notaFinal < Pior){
+			Pant->Prox = P->Prox;
+			P = AUX;
+			P->Elemento.notaFinal = Pior;
+		}
+	P=P->Prox;
+	}
+	while(ult->Prox!= NULL){
+		ult = ult->Prox;
+	}
+	ult -> Prox = AUX;
+	
+// funçao recursiva que calcule media das notas te [0]
+float mediaTE0PorNota (PNodoLista L, int nota, *contador){
+	float media = 0.0;
+	int contador=0;
+	if (L == NULL) return 0.0;
+	float somaresto = mediaTE0PorNota(L, nota, contador)
+	if(L->Elemento.notaTE[0] == nota){
+		contador++;
+		return L->Elemento.notaTE[0] + somaresto;
+	}
+	else{
+		return somaresto;
+	}
+}
+
