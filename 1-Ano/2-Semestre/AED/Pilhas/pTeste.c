@@ -1,4 +1,5 @@
-// trocar o fundo com o topo mantendo a ordem original da pilha
+
+// .trocar o fundo com o topo mantendo a ordem original da pilha
 PNodoPilha trocarInicioFim(PNodoPilha S){
 	if (S == NULL || S ->Prox == NULL) return S;
 	PNodoPilha AUX = NULL;
