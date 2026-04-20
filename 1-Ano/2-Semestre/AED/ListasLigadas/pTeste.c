@@ -53,3 +53,36 @@ PNodoLista melhorNotaPrimeiro (PNodoLista L){
 	}
 	return L;
 }
+
+//mover aluno com pior nota para ultimo
+PNodoLista moverPiorFim(PNodoLista L){
+	if (L == NULL || L->Prox == NULL) return L;
+	DadosLista
+	PNodoLista P=L;
+	PNodoLista Pant = NULL;
+	PNodoLista Pior = L;
+	PNodoLista APior = NULL;
+	while(P!=NULL){
+		if(P->Elemento.notaFinal < Pior->Elemento.notaFinal){
+			Pior = P;
+			APior = Pant;
+		}
+		Pant = P;
+		P = P->Prox;
+	}
+	if(Pior->Prox != NULL){
+		if(APior == NULL){
+			L = Pior->Prox
+		}
+		else{
+			APior->Prox = Pior->Prox;
+		}
+		PNodoLista Ult = L;
+		while(Ult->Prox != NULL){
+			Ult = Ult -> Prox;
+		}
+		Ult ->Prox = Pior;
+		Pior ->Prox = NULL;
+	}
+	return L;
+}
